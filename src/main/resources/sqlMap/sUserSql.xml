@@ -9,7 +9,7 @@
 		SELECT
 			id,
 			name,
-			email
+			IP_ADDRESS(host) as host
 		FROM
 			user
 		WHERE

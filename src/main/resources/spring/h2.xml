@@ -13,21 +13,21 @@
 
     <bean id="mysqlMaster" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.h2.Driver"/>
-        <property name="url" value="jdbc:h2:~/apps/h2db;DB_CLOSE_DELAY=-1;MODE=MYSQL;INIT=create schema if not exists one\;SET SCHEMA one;AUTO_SERVER=TRUE"/>
+        <property name="url" value="jdbc:h2:~/apps/sample;DB_CLOSE_DELAY=-1;MODE=MYSQL;INIT=create schema if not exists one\;SET SCHEMA one;AUTO_SERVER=TRUE"/>
         <property name="username" value="sa"/>
         <property name="password" value=""/>
         <property name="maxActive" value="20"/>
     </bean>
     <bean id="mysqlSlave00" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.h2.Driver"/>
-        <property name="url" value="jdbc:h2:~/apps/h2db;DB_CLOSE_DELAY=-1;MODE=MYSQL;INIT=create schema if not exists one\;SET SCHEMA one;AUTO_SERVER=TRUE"/>
+        <property name="url" value="jdbc:h2:~/apps/sample;DB_CLOSE_DELAY=-1;MODE=MYSQL;INIT=create schema if not exists one\;SET SCHEMA one;AUTO_SERVER=TRUE"/>
         <property name="username" value="sa"/>
         <property name="password" value=""/>
         <property name="maxActive" value="20"/>
     </bean>
     <bean id="mysqlSlave01" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.h2.Driver"/>
-        <property name="url" value="jdbc:h2:~/apps/h2db;DB_CLOSE_DELAY=-1;MODE=MYSQL;INIT=create schema if not exists one\;SET SCHEMA one;AUTO_SERVER=TRUE"/>
+        <property name="url" value="jdbc:h2:~/apps/sample;DB_CLOSE_DELAY=-1;MODE=MYSQL;INIT=create schema if not exists one\;SET SCHEMA one;AUTO_SERVER=TRUE"/>
         <property name="username" value="sa"/>
         <property name="password" value=""/>
         <property name="maxActive" value="20"/>
@@ -39,14 +39,23 @@
             <list>
                 <value>classpath:sql/create-db.sql</value>
                 <value>classpath:sql/insert-data.sql</value>
+                <value>classpath:sql/function-db.sql</value>
             </list>
         </property>
         <property name="continueOnError" value="true"/>
+    </bean>
+    <bean id="dbCleanup" class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
+        <property name="scripts">
+			<list>
+                <value>classpath:sql/drop-db.sql</value>
+            </list>
+        </property>
     </bean>
 
     <bean id="mInitializer" class="org.springframework.jdbc.datasource.init.DataSourceInitializer">
         <property name="dataSource"><ref bean="mysqlMaster"/></property>
         <property name="databasePopulator"><ref bean="dbInit"/></property>
+        <property name="databaseCleaner"><ref bean="dbCleanup"/></property>
  		<property name="enabled" value="true" />
     </bean>
     <!-- This is also OK

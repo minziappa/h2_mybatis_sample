@@ -3,7 +3,7 @@ package io.sample.h2.bean.model;
 public class UserModel {
 	private Integer id;
 	private String name;
-	private String email;
+	private String host;
 
 	public Integer getId() {
 		return id;
@@ -17,11 +17,11 @@ public class UserModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getEmail() {
-		return email;
+	public String getHost() {
+		return host;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setHost(String host) {
+		this.host = host;
 	}
 
 }
