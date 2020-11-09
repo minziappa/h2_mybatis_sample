@@ -18,6 +18,7 @@ public class H2Main {
 		SampleService sampleService = (SampleService) context.getBean("sampleServiceImpl");
 		UserModel user = sampleService.sltUser("kim");
 
+		System.out.println(" no >> " + user.getId());
 		System.out.println(" name >> " + user.getHost());
 	}
 

@@ -7,9 +7,9 @@
 	<select id="sltUser" parameterType="map" 
 		resultType="io.sample.h2.bean.model.UserModel">
 		SELECT
-			id,
+			LAST_INSERT_ID_MAX(id+1),
 			name,
-			IP_ADDRESS(host) as host
+			host
 		FROM
 			user
 		WHERE

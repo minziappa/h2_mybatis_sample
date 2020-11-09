@@ -1,7 +1,7 @@
 package io.sample.h2.bean.model;
 
 public class UserModel {
-	private Integer id;
+	private int id;
 	private String name;
 	private String host;
 

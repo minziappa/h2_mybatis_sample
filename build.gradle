@@ -22,7 +22,7 @@ eclipse {
 	}
 }
 
-String springVersion = '4.2.4.RELEASE'
+String springVersion = '4.3.6.RELEASE'
 String springBatchVersion = '3.0.6.RELEASE'
 String logbackVersion = '1.1.3'
 
@@ -40,12 +40,12 @@ dependencies {
 	compile 'org.hibernate:hibernate-entitymanager:5.0.8.Final'
 	testCompile 'org.springframework:spring-test:' + springVersion
 	compile 'org.springmodules:spring-modules-jakarta-commons:0.8'
-	compile "commons-dbcp:commons-dbcp:1.2.2"
-	compile "commons-pool:commons-pool:1.5.6"
+	compile "commons-dbcp:commons-dbcp:1.4"
+	compile "commons-pool:commons-pool:1.6"
 	compile "commons-collections:commons-collections:3.2.2"
 	compile "org.mybatis:mybatis:3.2.2"
 	compile "org.mybatis:mybatis-spring:1.2.0"
-	compile 'com.h2database:h2:1.4.191'
+	compile 'com.h2database:h2:1.4.193'
 	testCompile 'junit:junit:4.12'
 }
 

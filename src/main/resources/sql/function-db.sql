@@ -1,7 +1,7 @@
-CREATE ALIAS IP_ADDRESS AS '
-import java.net.*;
+CREATE ALIAS LAST_INSERT_ID_MAX AS '
+import java.lang.Integer;
 @CODE
-String ipAddress(String host) throws Exception {
-    return InetAddress.getByName(host).getHostAddress();
+int lastInsertIdMax(int id) throws Exception {
+    return id;
 }
 ';
